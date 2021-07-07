@@ -10,8 +10,10 @@ function App() {
         <Router>
             <div className="App">
                 <Nav />
-                <Movies />
-                <Route path="/user" component={User} />
+                <Switch>
+                    <Route path="/" component={Movies} />
+                    <Route path="/user" component={User} />
+                </Switch>
             </div>
         </Router>
     )
