@@ -1,6 +1,6 @@
 import React from 'react';
 
-function User() {
+function Account() {
     return (
         <div>
             <h1>
@@ -11,4 +11,4 @@ function User() {
     );
 }
 
-export default User;
+export default Account;
