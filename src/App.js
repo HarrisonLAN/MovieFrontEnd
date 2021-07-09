@@ -5,7 +5,10 @@ import Movies from './FilmComponents/movies';
 import MovieDetail from './FilmComponents/movieDetail';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Account from './userComponents/account';
-import PrivateRoute from './userComponents/privateRoute';
+import PrivateRoute from './routes/privateRoute';
+import PublicRoute from './routes/publicRoute';
+import Landing from './landing'
+import SignIn from './userComponents/signIn';
 
 function App() {
     return (
@@ -13,10 +16,10 @@ function App() {
             <div className="App">
                 <Nav />
                 <Switch>
-                    <Route path="/" exact />
-                    <Route path="/movie" exact component={Movies} />
-                    <Route path="/user" component={Account} />
-                    <Route path="/movie/:id" component={MovieDetail} />
+                    <PublicRoute restricted={false} component={Landing} path="/" exact />
+                    <PublicRoute restricted={true} component={SignIn} path="/signin" exact />
+                    <PrivateRoute Route path="/movie" exact component={Movies} />
+                    <PrivateRoute Route path="/movie/:id" component={MovieDetail} />
                     <PrivateRoute path="/account" component={Account} />
 
                 </Switch>
