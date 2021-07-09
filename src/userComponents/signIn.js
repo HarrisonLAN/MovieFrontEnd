@@ -3,11 +3,11 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 export default function SignIn() {
-  const [userName, setUserName] = useState("");
+  const [name, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
   function validateForm() {
-    return userName.length > 0 && password.length > 0;
+    return name.length > 0 && password.length > 0;
   }
 
   function handleSubmit (event) {
@@ -30,11 +30,11 @@ export default function SignIn() {
     <div className="Login">
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="text">
-          <Form.Label>Username</Form.Label>
+          <Form.Label>Name</Form.Label>
           <Form.Control
             autoFocus
             type="text"
-            value={userName}
+            value={name}
             onChange={(e) => setUserName(e.target.value)}
           />
         </Form.Group>
