@@ -17,7 +17,7 @@ function App() {
                 <Nav />
                 <Switch>
                     <PublicRoute restricted={false} component={Landing} path="/" exact />
-                    <PublicRoute restricted={true} component={SignIn} path="/signin" exact />
+                    <PublicRoute restricted={true} path="/signin" component={SignIn} />
                     <PrivateRoute Route path="/movie" exact component={Movies} />
                     <PrivateRoute Route path="/movie/:id" component={MovieDetail} />
                     <PrivateRoute path="/account" component={Account} />
