@@ -1,18 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { login } from '../utils/index'
+import axios from 'axios'
 
-async function GetUser(event, username, password) {
+async function GetUser(event, name, password) {
   event.preventDefault();
-
-  const data = await fetch(
-    `http://localhost:3001/api/auth/login`, {
-    method: 'POST',
-    // We convert the React state to JSON and send it as the POST body
-    body: JSON.stringify({ username, password })
-  });
-  const { token, success } = await data.json();
+  const url = `http://localhost:3001/api/auth/login`;
+  const payload = { name, password };
+  const { data } = await axios.post(url, payload);
+  const { token, success } = data;
   login(token);
 }
 
