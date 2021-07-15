@@ -18,7 +18,7 @@ function MovieDetail({ match }) {
     }
     const fetchComments = async () => {
         const data = await fetch(
-            `http://localhost:3001/api/movies/comments/${match.params.id}`);
+            `http://209.250.229.174:3001/api/movies/comments/${match.params.id}`);
         const jsonComments = await data.json();
         setComments(jsonComments);
         console.log(jsonComments)
