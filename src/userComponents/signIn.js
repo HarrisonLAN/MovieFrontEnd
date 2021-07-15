@@ -6,7 +6,7 @@ import axios from 'axios'
 
 async function GetUser(event, name, password) {
   event.preventDefault();
-  const url = `http://localhost:3001/api/auth/login`;
+  const url = `http://209.250.229.174:3001/api/auth/login`;
   const payload = { name, password };
   const { data } = await axios.post(url, payload);
   const { token, success } = data;

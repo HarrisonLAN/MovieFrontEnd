@@ -10,7 +10,7 @@ function Movies() {
     const [films, setFilms] = useState([]);
 
     const fetchFilms = async () => {
-        const data = await fetch('http://localhost:3001/api/movies');
+        const data = await fetch('http://209.250.229.174:3001/api/movies');
         const jsonFilms = await data.json();
         setFilms(jsonFilms.movies);
     }

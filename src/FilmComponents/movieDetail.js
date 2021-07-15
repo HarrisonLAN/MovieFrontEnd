@@ -10,7 +10,7 @@ function MovieDetail({ match }) {
 
     const fetchFilm = async () => {
         const data = await fetch(
-            `http://localhost:3001/api/movies/${match.params.id}`);
+            `http://209.250.229.174:3001/api/movies/${match.params.id}`);
         const jsonFilm = await data.json();
         setFilm(jsonFilm.movies);
         console.log(jsonFilm.movies);
