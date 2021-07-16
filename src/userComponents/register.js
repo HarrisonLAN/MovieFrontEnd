@@ -3,18 +3,19 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { login } from '../utils/index'
 import axios from 'axios'
-async function GetUser(event, name, password) {
+
+async function CreateUser(event, name,email, password) {
   event.preventDefault();
-  const url = `http://209.250.229.174:3001/api/auth/login`;
-  const payload = { name, password };
+  const url = `http://209.250.229.174:3001/api/auth/register`;
+  const payload = { name, email, password };
   const { data } = await axios.post(url, payload);
   const { token, success } = data;
   login(token);
 }
 
-export default function SignIn() {
-
+export default function Register() {
   const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   function validateForm() {
@@ -22,8 +23,8 @@ export default function SignIn() {
   }
 
   return (
-    <div className="Login">
-      <Form onSubmit={(event) => GetUser(event, username, password)}>
+    <div className="Register">
+      <Form onSubmit={(event) => CreateUser(event, username,email, password)}>
         <Form.Group size="lg" controlId="text">
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -31,6 +32,14 @@ export default function SignIn() {
             type="text"
             value={username}
             onChange={(e) => setUserName(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group size="lg" controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
@@ -48,4 +57,4 @@ export default function SignIn() {
     </div>
     
   );
-  }
+}

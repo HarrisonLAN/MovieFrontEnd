@@ -15,3 +15,11 @@ export const isLogin = (jwt) => {
 
     return false;
 }
+export const logiutilsJWTnDets = () => {
+    if (localStorage.getItem(TOKEN_KEY)) {
+        return localStorage.getItem(TOKEN_KEY);
+    }else{
+        return false;
+    }
+
+}

@@ -8,8 +8,8 @@ import Account from './userComponents/account';
 import PrivateRoute from './routes/privateRoute';
 import PublicRoute from './routes/publicRoute';
 import Landing from './landing'
-import SignIn from './userComponents/signIn';
-
+import SignIn from '../src/userComponents/signIn';
+import Register from '../src/userComponents/register'
 function App() {
     return (
         <Router>
@@ -18,6 +18,7 @@ function App() {
                 <Switch>
                     <PublicRoute restricted={false} component={Landing} path="/" exact />
                     <PublicRoute restricted={true} path="/signin" component={SignIn} />
+                    <PublicRoute restricted={false} path="/register" component={Register} />
                     <PrivateRoute Route path="/movie" exact component={Movies} />
                     <PrivateRoute Route path="/movie/:id" component={MovieDetail} />
                     <PrivateRoute path="/account" component={Account} />
