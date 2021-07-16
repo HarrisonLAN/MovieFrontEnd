@@ -9,6 +9,8 @@ function Nav() {
                 <Link to="/"><li>Home</li></Link>
                 <Link to="/movie"><li>Movies</li></Link>
                 <Link to="/account"><li>AccountS</li></Link>
+                <Link to="/signin"><li>SignIn</li></Link>
+                <Link to="/register"><li>Register</li></Link>
             </ul>
         </nav>
     );
