@@ -14,7 +14,6 @@ import Register from '../src/userComponents/register'
 function App() {
     return (
         <Router>
-            <NavMenu />
             <div className="min-h-screen flex justify-center items-center">
                 <Switch>
                     <PublicRoute restricted={false} component={Landing} path="/" exact />
